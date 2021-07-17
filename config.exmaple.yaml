@@ -1,0 +1,9 @@
+cloudflare:
+  - authentication:
+      auth_email: xxx@gmail.com
+      auth_key: xxxxx
+    subdomains:
+      - zone_id: 4a52xxxx
+        name: xxx1.xxx.net
+      - zone_id: 4a52xxxx
+        name: xxx2.xxx.net
