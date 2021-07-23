@@ -8,6 +8,15 @@ from apscheduler.schedulers.background import BlockingScheduler
 logging.basicConfig(level='INFO')
 
 
+class SessionTimeoutFix(requests.Session):
+
+    def request(self, *args, **kwargs):
+        timeout = kwargs.pop('timeout', 5)
+        return super().request(*args, **kwargs, timeout=timeout)
+
+requests.sessions.Session = SessionTimeoutFix
+
+
 class CloudFlare:
 
     def __init__(self, auth_email: str, auth_key: str):
